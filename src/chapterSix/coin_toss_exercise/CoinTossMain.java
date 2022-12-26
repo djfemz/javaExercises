@@ -1,13 +1,14 @@
 package chapterSix.coin_toss_exercise;
 
-import java.util.Scanner;
+import chapterFour.RegnosScanner;
+
 import java.util.concurrent.TimeUnit;
 
 public class CoinTossMain {
     private static CoinTossGame game = new CoinTossGame();
 
     public static void main(String[] args) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
+        RegnosScanner scanner = new RegnosScanner(System.in);
         System.out.println(CoinTossGame.getGameMenu());
         int usersInput = scanner.nextInt();
         System.out.println(usersInput);
@@ -19,8 +20,9 @@ public class CoinTossMain {
             System.out.println(CoinTossGame.getGameMenu());
             usersInput = scanner.nextInt();
         }while(usersInput>0&&usersInput<3);
-
     }
+
+
 
     private static void goodbye() throws InterruptedException {
         displayResult();
@@ -29,6 +31,8 @@ public class CoinTossMain {
             TimeUnit.SECONDS.sleep(1);
             System.out.print(".");
         }
+        System.exit(0);
+
     }
 
     private static void displayResult(){
